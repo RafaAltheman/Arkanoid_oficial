@@ -24,6 +24,11 @@ public class BallContorlFases : MonoBehaviour
             vel.y = (rb2d.linearVelocity.y / 2) + (coll.collider.attachedRigidbody.linearVelocity.y / 3);
             rb2d.linearVelocity = vel;
         }
+
+        if (coll.gameObject.tag == "Brick")
+        {
+            Destroy(coll.gameObject);
+        }
     }
 
     void ResetBall(){
