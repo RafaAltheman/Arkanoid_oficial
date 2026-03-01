@@ -1,26 +1,17 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Collider2D))]
-public class PlayerControls : MonoBehaviour
+public class PlayerControls1 : MonoBehaviour
 {
     public BoxCollider2D leftWall;
     public BoxCollider2D rightWall;
 
     private Rigidbody2D rb;
-    private Collider2D col;
     private float halfWidth;
 
-    void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<Collider2D>();
-
-        // Config recomendado pra raquete
-        rb.bodyType = RigidbodyType2D.Kinematic;
-        rb.gravityScale = 0f;
-
-        halfWidth = col.bounds.extents.x;
+        halfWidth = GetComponent<Collider2D>().bounds.extents.x;
     }
 
     void FixedUpdate()
@@ -32,7 +23,7 @@ public class PlayerControls : MonoBehaviour
 
         float targetX = Mathf.Clamp(mousePos.x, minX, maxX);
 
-        // Move usando física (não "teleporta" o transform)
+        // Move usando física (suave e sem travar)
         rb.MovePosition(new Vector2(targetX, rb.position.y));
     }
 }
