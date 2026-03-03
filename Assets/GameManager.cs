@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     public int fase1MaxScore = 54;
 
+    public int fase2Bricks = 116;
+
     [Header("UI (TextMeshProUGUI)")]
     public TMP_Text livesText;
     public TMP_Text scoreText;
@@ -89,10 +91,19 @@ public class GameManager : MonoBehaviour
 
         string currentScene = SceneManager.GetActiveScene().name;
 
-        // Se estiver na Fase1 e atingir pontuação máxima
-        if (currentScene == "Fase1" && Score >= fase1MaxScore)
+        // alvo acumulado de vitória (fase1 + fase2)
+        int fase2WinScore = fase1MaxScore + (fase2Bricks * pointsPerBrick);
+
+        if (currentScene == fase1Scene && Score >= fase1MaxScore)
         {
-            SceneManager.LoadScene("Fase2");
+            SceneManager.LoadScene(fase2Scene);
+            return;
+        }
+
+        if (currentScene == fase2Scene && Score >= fase2WinScore)
+        {
+            SceneManager.LoadScene(winScene);
+            return;
         }
     }
 
