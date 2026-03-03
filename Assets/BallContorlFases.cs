@@ -112,5 +112,27 @@ public class BallControl : MonoBehaviour
 
             dir = new Vector2(xFactor * paddleInfluence, Mathf.Abs(dir.y)).normalized;
         }
+
+        if (coll.gameObject.CompareTag("Brick"))
+        {
+            Destroy(coll.gameObject);
+            GameManager.I.AddBrickScore();
+            GameManager.I.CheckLevelCleared();
+        }
+
+        if (coll.gameObject.CompareTag("BottomWall"))
+        {
+            GameManager.I.LoseLife();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("BottomWall"))
+        {
+            GameManager.I.LoseLife();   // perde vida
+            GameManager.I.ResetScore(); // zera pontos
+            // Respawn();  // se seu respawn já acontece em outro lugar, não precisa
+        }
     }
 }

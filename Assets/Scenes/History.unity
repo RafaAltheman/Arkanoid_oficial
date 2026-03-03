@@ -842,6 +842,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1170143437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1170143439}
+  - component: {fileID: 1170143438}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1170143438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170143437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036c63b4f8c4a883a8f23d9b450dc03f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingLives: 10
+  pointsPerBrick: 1
+  menuScene: History
+  fase1Scene: Fase1
+  fase2Scene: Fase2
+  winScene: Win
+  gameOverScene: SampleScene
+  livesText: {fileID: 0}
+  scoreText: {fileID: 0}
+--- !u!4 &1170143439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170143437}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.055869, y: 10.268227, z: -0.15906881}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1293284023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,3 +1083,4 @@ SceneRoots:
   - {fileID: 14663555}
   - {fileID: 374137706}
   - {fileID: 1456121203}
+  - {fileID: 1170143439}
